@@ -1,0 +1,19 @@
+composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-blogSystem
+
+php init
+
+create a db in the phpmyadmin
+
+change the db configuration from common/config/main-local.php
+
+php yii migrate
+php yii migrate/down 10
+
+
+php yii serve --docroot="frontend/web/"
+php yii serve --docroot="backend/web/" --port=8081
+
+php yii migrate/create create_post_table
+php yii migrate/create create_comment_table
+
+php yii migrate/fresh
