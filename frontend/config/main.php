@@ -47,10 +47,11 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                ['class' => UrlRule::class, 'controller' => 'post'],
+                ['class' => UrlRule::class, 'controller' => ['post', 'comment']],
                 // this if I want to make an alias for the controller name in the url
-                // ['class' => UrlRule::class, 'controller' => ['article' => 'post']], 
-                ['class' => UrlRule::class, 'controller' => 'comment'],
+                // ['class' => UrlRule::class, 'controller' => ['article' => 'post']],
+                // this if I want to define one controller 
+                // ['class' => UrlRule::class, 'controller' => 'comment'],
             ],
         ],
     ],
