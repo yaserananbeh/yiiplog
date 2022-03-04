@@ -22,6 +22,13 @@ use yii\behaviors\TimestampBehavior;
  */
 class Post extends \yii\db\ActiveRecord
 {
+    //this function if I need to response with some fields(property) only
+    // public function fields()
+    // {
+    //     return ['id', 'title', 'body'];
+    // }
+
+
     /**
      * {@inheritdoc}
      */
@@ -45,7 +52,7 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title','body'],'required'],
+            [['title', 'body'], 'required'],
             [['body'], 'string'],
             [['created_at', 'updated_at', 'created_by'], 'integer'],
             [['title'], 'string', 'max' => 255],

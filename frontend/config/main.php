@@ -1,4 +1,7 @@
 <?php
+
+use yii\rest\UrlRule;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -43,10 +46,12 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
-            // 'rules' => [
-            //     ['class' => 'yii\rest\UrlRule', 'controller' => 'post'],
-            //     ['class' => 'yii\rest\UrlRule', 'controller' => 'comment'],
-            // ],
+            'rules' => [
+                ['class' => UrlRule::class, 'controller' => 'post'],
+                // this if I want to make an alias for the controller name in the url
+                // ['class' => UrlRule::class, 'controller' => ['article' => 'post']], 
+                ['class' => UrlRule::class, 'controller' => 'comment'],
+            ],
         ],
     ],
     'params' => $params,
