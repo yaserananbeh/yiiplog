@@ -17,3 +17,6 @@ php yii migrate/create create_post_table
 php yii migrate/create create_comment_table
 
 php yii migrate/fresh
+
+able the url prettier from the common
+and remove the bug from the contact page
