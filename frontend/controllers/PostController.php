@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\Post;
+use frontend\resource\Post;
 
 class PostController extends \yii\rest\ActiveController
 {
