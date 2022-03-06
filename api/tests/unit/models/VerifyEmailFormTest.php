@@ -8,7 +8,7 @@ use api\models\VerifyEmailForm;
 class VerifyEmailFormTest extends \Codeception\Test\Unit
 {
     /**
-     * @var \frontend\tests\UnitTester
+     * @var \api\tests\UnitTester
      */
     protected $tester;
 

@@ -10,7 +10,7 @@ use api\models\ResendVerificationEmailForm;
 class ResendVerificationEmailFormTest extends Unit
 {
     /**
-     * @var \frontend\tests\UnitTester
+     * @var \api\tests\UnitTester
      */
     protected $tester;
 
