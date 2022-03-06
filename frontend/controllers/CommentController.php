@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\Comment;
+use frontend\resource\Comment;
 
 class CommentController extends \yii\rest\ActiveController
 {
