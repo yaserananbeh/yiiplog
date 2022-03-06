@@ -9,4 +9,8 @@ class Post extends \common\models\Post
     {
         return ['id', 'title', 'body'];
     }
+    public function extraFields()
+    {
+        return ['created_at', 'updated_at', 'created_by'];
+    }
 }
