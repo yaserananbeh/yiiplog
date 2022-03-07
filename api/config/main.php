@@ -12,15 +12,14 @@ $params = array_merge(
 return [
     'id' => 'app-api',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'controllerNamespace' => 'api\controllers',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-api',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
-            ]
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -46,10 +45,13 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => true,
+            'enableStrictParsing' => false,
             'rules' => [
-                ['class' => UrlRule::class, 'controller' => ['user']],
-
+                ['class' => UrlRule::class, 'controller' => ['post', 'comment', 'category']],
+                // this if I want to make an alias for the controller name in the url
+                // ['class' => UrlRule::class, 'controller' => ['article' => 'post']],
+                // this if I want to define one controller 
+                // ['class' => UrlRule::class, 'controller' => 'comment'],
             ],
         ],
     ],
