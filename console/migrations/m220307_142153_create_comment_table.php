@@ -5,9 +5,9 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%comment}}`.
  */
-class m220304_134212_create_comment_table extends Migration
+class m220307_142153_create_comment_table extends Migration
 {
-    /**
+   /**
      * {@inheritdoc}
      */
     public function safeUp()

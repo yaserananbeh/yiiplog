@@ -13,6 +13,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $id
  * @property string|null $title
  * @property string|null $body
+ * @property int|null $category_id
  * @property int|null $created_at
  * @property int|null $updated_at
  * @property int|null $created_by
@@ -52,9 +53,9 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'body'], 'required'],
+            [['title', 'body', 'category_id'], 'required'],
             [['body'], 'string'],
-            [['created_at', 'updated_at', 'created_by'], 'integer'],
+            [['created_at', 'updated_at', 'created_by', 'category_id'], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
@@ -70,6 +71,7 @@ class Post extends \yii\db\ActiveRecord
             'title' => 'Title',
             'body' => 'Body',
             'created_at' => 'Created At',
+            'category_id' => 'Category Id',
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',
         ];
