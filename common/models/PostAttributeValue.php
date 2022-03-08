@@ -3,11 +3,9 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "{{%post_attribute_value}}".
+ * This is the model class for table "{{%postattributevalue}}".
  *
  * @property int $id
  * @property int|null $post_id
@@ -17,14 +15,14 @@ use yii\behaviors\TimestampBehavior;
  * @property Attribute $post
  * @property Post $post0
  */
-class PostAttributeValue extends \yii\db\ActiveRecord
+class Postattributevalue extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%post_attribute_value}}';
+        return '{{%postattributevalue}}';
     }
 
     /**
@@ -75,10 +73,10 @@ class PostAttributeValue extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return \common\models\query\PostAttributeValueQuery the active query used by this AR class.
+     * @return \common\models\query\PostattributevalueQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \common\models\query\PostAttributeValueQuery(get_called_class());
+        return new \common\models\query\PostattributevalueQuery(get_called_class());
     }
 }
