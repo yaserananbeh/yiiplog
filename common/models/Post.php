@@ -3,7 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\base\Behavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
@@ -18,18 +17,13 @@ use yii\behaviors\TimestampBehavior;
  * @property int|null $updated_at
  * @property int|null $created_by
  *
+ * @property Category $category
  * @property Comment[] $comments
  * @property User $createdBy
+ * @property PostAttributeValue[] $postAttributeValues
  */
 class Post extends \yii\db\ActiveRecord
 {
-    //this function if I need to response with some fields(property) only
-    // public function fields()
-    // {
-    //     return ['id', 'title', 'body'];
-    // }
-
-
     /**
      * {@inheritdoc}
      */
@@ -55,8 +49,9 @@ class Post extends \yii\db\ActiveRecord
         return [
             [['title', 'body', 'category_id'], 'required'],
             [['body'], 'string'],
-            [['created_at', 'updated_at', 'created_by', 'category_id'], 'integer'],
+            [['category_id', 'created_at', 'updated_at', 'created_by'], 'integer'],
             [['title'], 'string', 'max' => 255],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
@@ -70,11 +65,21 @@ class Post extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'body' => 'Body',
+            'category_id' => 'Category ID',
             'created_at' => 'Created At',
-            'category_id' => 'Category Id',
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',
         ];
+    }
+
+    /**
+     * Gets query for [[Category]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\CategoryQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
     /**
@@ -95,6 +100,16 @@ class Post extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * Gets query for [[PostAttributeValues]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\PostAttributeValueQuery
+     */
+    public function getPostAttributeValues()
+    {
+        return $this->hasMany(PostAttributeValue::className(), ['post_id' => 'id']);
     }
 
     /**

@@ -29,7 +29,6 @@ class Comment extends \yii\db\ActiveRecord
     {
         return '{{%comment}}';
     }
-
     public function behaviors()
     {
         return [
@@ -40,6 +39,7 @@ class Comment extends \yii\db\ActiveRecord
             ]
         ];
     }
+
     /**
      * {@inheritdoc}
      */

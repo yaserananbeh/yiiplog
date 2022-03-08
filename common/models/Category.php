@@ -15,7 +15,9 @@ use yii\behaviors\TimestampBehavior;
  * @property int|null $updated_at
  * @property int|null $created_by
  *
+ * @property Attribute[] $attributes0
  * @property User $createdBy
+ * @property Post[] $posts
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -36,7 +38,6 @@ class Category extends \yii\db\ActiveRecord
             ]
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -65,6 +66,16 @@ class Category extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[Attributes0]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\AttributeQuery
+     */
+    public function getAttributes0()
+    {
+        return $this->hasMany(Attribute::className(), ['category_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[CreatedBy]].
      *
      * @return \yii\db\ActiveQuery|\common\models\query\UserQuery
@@ -72,6 +83,16 @@ class Category extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * Gets query for [[Posts]].
+     *
+     * @return \yii\db\ActiveQuery|\common\models\query\PostQuery
+     */
+    public function getPosts()
+    {
+        return $this->hasMany(Post::className(), ['category_id' => 'id']);
     }
 
     /**

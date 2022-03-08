@@ -47,7 +47,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                ['class' => UrlRule::class, 'controller' => ['post', 'comment', 'category', 'attribute']],
+                ['class' => UrlRule::class, 'controller' => ['post', 'comment', 'category', 'attribute', 'postattributevalue']],
                 // this if I want to make an alias for the controller name in the url
                 // ['class' => UrlRule::class, 'controller' => ['article' => 'post']],
                 // this if I want to define one controller 
