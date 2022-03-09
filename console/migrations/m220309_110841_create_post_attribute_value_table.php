@@ -19,7 +19,7 @@ class m220309_110841_create_post_attribute_value_table extends Migration
             'value' => $this->string(),
         ]);
         $this->addForeignKey("FK_post_attribute_value_post_post_id", '{{%post_attribute_value}}', 'post_id', '{{%post}}', "id");
-        $this->addForeignKey("FK_post_attribute_value_attribute_attribute_id", '{{%post_attribute_value}}', 'post_id', '{{%attribute}}', "id");
+        $this->addForeignKey("FK_post_attribute_value_attribute_attribute_id", '{{%post_attribute_value}}', 'attribute_id', '{{%attribute}}', "id");
     }
 
     /**

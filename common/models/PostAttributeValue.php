@@ -12,8 +12,8 @@ use Yii;
  * @property int|null $attribute_id
  * @property string|null $value
  *
- * @property Attribute $post
- * @property Post $post0
+ * @property Attribute $attribute0
+ * @property Post $post
  */
 class PostAttributeValue extends \yii\db\ActiveRecord
 {
@@ -33,7 +33,7 @@ class PostAttributeValue extends \yii\db\ActiveRecord
         return [
             [['post_id', 'attribute_id'], 'integer'],
             [['value'], 'string', 'max' => 255],
-            [['post_id'], 'exist', 'skipOnError' => true, 'targetClass' => Attribute::className(), 'targetAttribute' => ['post_id' => 'id']],
+            [['attribute_id'], 'exist', 'skipOnError' => true, 'targetClass' => Attribute::className(), 'targetAttribute' => ['attribute_id' => 'id']],
             [['post_id'], 'exist', 'skipOnError' => true, 'targetClass' => Post::className(), 'targetAttribute' => ['post_id' => 'id']],
         ];
     }
@@ -52,21 +52,21 @@ class PostAttributeValue extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Post]].
+     * Gets query for [[Attribute0]].
      *
      * @return \yii\db\ActiveQuery|\common\models\query\AttributeQuery
      */
-    public function getPost()
+    public function getAttribute0()
     {
-        return $this->hasOne(Attribute::className(), ['id' => 'post_id']);
+        return $this->hasOne(Attribute::className(), ['id' => 'attribute_id']);
     }
 
     /**
-     * Gets query for [[Post0]].
+     * Gets query for [[Post]].
      *
      * @return \yii\db\ActiveQuery|\common\models\query\PostQuery
      */
-    public function getPost0()
+    public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }
