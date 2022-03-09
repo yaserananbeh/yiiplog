@@ -3,11 +3,11 @@
 namespace common\models\query;
 
 /**
- * This is the ActiveQuery class for [[\common\models\Postattributevalue]].
+ * This is the ActiveQuery class for [[\common\models\PostAttributeValue]].
  *
- * @see \common\models\Postattributevalue
+ * @see \common\models\PostAttributeValue
  */
-class PostattributevalueQuery extends \yii\db\ActiveQuery
+class PostAttributeValueQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class PostattributevalueQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Postattributevalue[]|array
+     * @return \common\models\PostAttributeValue[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class PostattributevalueQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \common\models\Postattributevalue|array|null
+     * @return \common\models\PostAttributeValue|array|null
      */
     public function one($db = null)
     {

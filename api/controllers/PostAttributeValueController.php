@@ -5,7 +5,7 @@ namespace api\controllers;
 use common\models\PostAttributeValue;
 use yii\rest\ActiveController;
 
-class PostattributevalueController extends ActiveController
+class PostAttributeValueController extends ActiveController
 {
     public $modelClass = PostAttributeValue::class;
 }
